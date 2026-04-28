@@ -79,6 +79,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 
     try {
       const authPayload = await authService.login(payload);
+      
       await persistAccessToken(authPayload.token);
 
       set({

@@ -9,17 +9,17 @@ import type {
 
 export const authService = {
   async login(payload: LoginRequest) {
-    const response = await api.post<ApiSuccessResponse<AuthPayload>>('/api/login', payload);
+    const response = await api.post<ApiSuccessResponse<AuthPayload>>('/api/auth/login', payload);
     return response.data.data;
   },
 
   async register(payload: RegisterRequest) {
-    const response = await api.post<ApiSuccessResponse<AuthPayload>>('/api/register', payload);
+    const response = await api.post<ApiSuccessResponse<AuthPayload>>('/api/auth/register', payload);
     return response.data.data;
   },
 
   async me() {
-    const response = await api.get<ApiSuccessResponse<AuthUser>>('/api/me');
+    const response = await api.get<ApiSuccessResponse<AuthUser>>('/api/auth/me');
     return response.data.data;
   },
 };
